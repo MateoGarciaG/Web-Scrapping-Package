@@ -1,0 +1,18 @@
+atomicwrites==1.4.0
+attrs==21.2.0
+certifi==2021.10.8
+chardet==3.0.4
+colorama==0.4.4
+dnspython==2.0.0
+idna==2.10
+iniconfig==1.1.1
+Menus-Scrapping-Tool @ file:///C:/Users/Mateo/Documents/APUNTES_DUAL_FP_2020/PROJECTS/PROYECTO_WEB%20SCRAPPING/RickyProject_distribucion/InstalarPaquete_RicksyProject/Menus_Scrapping_Tool-0.0.1-py3-none-any.whl
+packaging==21.3
+pluggy==0.13.1
+py==1.11.0
+pymongo==3.11.2
+pyparsing==3.0.6
+pytest==6.1.2
+requests==2.25.0
+toml==0.10.2
+urllib3==1.26.7
