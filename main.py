@@ -52,12 +52,16 @@ def execute_program():
         
         
     # #* MONGODB SECTION
-    #* connection(<name>, <password>)
-    client = connection()              
+    #* connection(<atlas_url>)
+    #* Ejm: url-atlas: 
+    '''
+    "mongodb+srv://<user>:<password>@sandbox.dec55.mongodb.net/?retryWrites=true&w=majority"
+    '''
+    client = connection("<url_atlas>")              
 
     try:
-        db_project = client['project_menus']
-        menus_collection = db_project['project_menus_prueba']
+        db_project = client['<db>']
+        menus_collection = db_project['<collection>']
     
         #* insert menus on database
         menus_collection.insert_many(result_scrapping)

@@ -13,25 +13,25 @@ pip freeze > requirements.txt
 
 ```
 
-Hay que ir a la carpeta del entorno virtual y eliminar de la ruta del modulo "crawler" el "src" en el import`
-En la siguiente ruta:
+Ir a main.py y colocar la URL_ATLAS, DB y Collection de tu Cluster para insertar los JSON
 
 ```python 
+    # #* MONGODB SECTION
+    #* connection(<atlas_url>)
+    #* Ejm: url-atlas: 
+    '''
+    "mongodb+srv://<user>:<password>@sandbox.dec55.mongodb.net/?retryWrites=true&w=majority"
+    '''
+    client = connection("<url_atlas>")              
 
-# <nombreEntornoVirtual>/Lib/site-packages/crawler/crawling.py
+    try:
+        db_project = client['<db>']
+        menus_collection = db_project['<collection>']
+    
+        #* insert menus on database
+        menus_collection.insert_many(result_scrapping)
 
-# Antes
-
-import requests
-from src.content_page.content_html import get_html_content
-...
-
-# Después
-
-import requests
-from content_page.content_html import get_html_content
-
-...
+    ...
 
 ```
 
