@@ -1,6 +1,7 @@
 
 #* MODULES
-
+#* DATABASE MODULE
+from database.db_conection import connection
 from bson.json_util import dumps
 
 #* REQUEST - CONTENT_PAGE MODULE
@@ -48,6 +49,33 @@ def execute_program():
         convert_to_json = convert_json(dict_scrapping, 'datos')
         
         result_scrapping.append(dict_scrapping)
+        
+        
+    # #* MONGODB SECTION
+    #* connection(<name>, <password>)
+    client = connection()              
+
+    try:
+        db_project = client['project_menus']
+        menus_collection = db_project['project_menus_prueba']
+    
+        #* insert menus on database
+        menus_collection.insert_many(result_scrapping)
+    
+        # #* Get all documents of menus
+        find_menus = menus_collection.find({}, {"_id":0})
+
+        print('*'*50)
+        #*Imprimir resultado con documentos
+        print(dumps(find_menus, indent=4))
+        print('*'*50)
+        
+    except Exception as err:
+        print('ERROR: ', err.args)
+    
+    else:
+        print('*'*50)
+        print('\n Se ha insertado correctamente!!')
     
     return result_scrapping
 
